@@ -1,6 +1,6 @@
 # Text answers from Week 0
 
-# Name:
+# Name: Lei Wang
 
 
 
@@ -12,7 +12,10 @@ Explain what each of the following lines does. Use the terminology you learned f
 	wait_for_user()
 
 Answer:
-
+1. import all the variable and functions from package TurtleWorld
+2. create an object instance of class TurtleWorld and assign it to variable world
+3. create an object instance of class Turtle and assign it to variable bob
+4. waiting for an input interruption before terminate the program
 
 
 
@@ -22,13 +25,20 @@ These questions pertain to the program you wrote in Week0.
 
 -- What are the arguments of polygon()?  What type is each argument?
 Answer:
+1. object paraemter of type(class) Turtle
+2. integer size and n
+
 
 -- What two turtle functions did you use to draw the sides of the polygon?
 Answer:
+1. fd()
+2. lt()
 
 -- What are the arguments for polyline?  What type is each argument?
 Answer:
-
+1. object paraemter of type(class) Turtle
+2. integer "size" and "n"
+3. double "angle"
 
 
 
@@ -37,9 +47,58 @@ Suppose you wrote a function, center_circle(), that draws a circle of a given ra
 
 -- What turtle functions would you use to move the turtle from the center to the edge of the circle and get ready to call the original circle() function?
 Answer:
+pu, fd, pd
 
 -- Suppose the interface of this function requires the turtle to end up in the same place it started, facing in the same direction it started.
 Answer:
+before doing anything: 
+	x, y = bob.x, bob.y
+	heading = bob.heading
+after finishing all the job:
+	bob.x, bob.y = x, y
+	bob.heading = heading
 
 -- What is this type of requirement called?
 Answer:
+API contract?
+
+-------------------------------------------------------------
+
+Why would refactoring be useful?
+Answer:
+1. it's easier to read and understand, thus easier for maintenance
+2. it makes the program more modular, easier for reuse, thus improve efficiency in development
+3. make it easier for a team to cooperate in creating bigger systems
+
+
+What would the code change be to make the house appear twice as high given the latest version of the refactor_example script?
+Answer:
+change default value of size to 20 in function input parameter; or supply 20 as input parameter when making the function call, like draw_house(bob, 20)
+
+
+What would the code change look like if we had never made a draw_house method that took size as a parameter (no need to actually write it, just explain what it would entail)?
+Answer: 
+then size would be hard-coded inside program, need change the number inside the program.
+
+----------------------------------------------------------------------
+
+Note that to call fdlt() the way it is implemented, we need to write `fdlt(bob, 20)`, for example. What would the function look like if we wanted to also pass in a parameter for the angle?
+Answer:
+it woudl be like fdlt(bob, 20, 45), the third parameter is for the angle.
+
+
+What would we have to do to be able to write `bob.fdlt(length, angle)`? (Hint: go back and take a look at how we define methods on the Turtle class in TurtleWorld.py)
+Answer:
+define fdlt = Turtle.fdlt within the  class
+
+----------------------------------------------------------------------
+
+Why does theta need to be in units of degrees?
+Answer:
+because one circle is 360 degrees. Only when theta is in degrees, 36- * theta makes a full circle.
+
+
+What would you have to do in order to make arc(turtle=bob, r=10, theta=6.3) draw a complete circle (i.e. to make arc accept radians, instead of degrees)?
+Answer:
+make arc() draw 1/6.3 of a circle as a unit
+
