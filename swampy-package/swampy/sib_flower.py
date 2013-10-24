@@ -56,7 +56,7 @@ mv(bob, 150)
 bob.heading = 0
 flower(bob, 20, 0.3, 63)
 
-bob.die
+bob.die()
 
 wait_for_user()					
 
